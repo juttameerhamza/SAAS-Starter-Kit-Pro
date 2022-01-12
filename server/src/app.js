@@ -4,7 +4,7 @@ import express from 'express';
 import './Config/dotenv.js';
 import './Config/firebase.js';
 import './Database/mongo/db.js';
-import './Database/sql/db.js';
+// import './Database/sql/db.js';
 
 import cors from 'cors';
 import morgan from 'morgan';
@@ -17,6 +17,7 @@ import auth from './API/auth.js';
 import todoApi from './API/todos.js';
 import utilsApi from './API/utils.js';
 import orgApi from './API/org.js';
+import projectApi from './API/projects.js';
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use('/', utilsApi);
 app.use('/auth', auth);
 app.use('/api', orgApi);
 app.use('/api', todoApi);
+app.use('/api', projectApi);
 
 // error handling
 app.use(errorHandler);
